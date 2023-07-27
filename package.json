@@ -4,9 +4,11 @@
   "description": "npm practice",
   "main": "first-app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node first-app.js",
+    "start-server": "nodemon first-app.js"
   },
-  "author": "mahavatar babaji",
+  "author": "Unknown",
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.2",
