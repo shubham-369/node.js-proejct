@@ -24,7 +24,7 @@ const requestServer = (req, res) =>{
                 </head>
                 <body>
                     
-                    <h1 class="mb-3"></h1>
+                    <h1 class="mb-3">${data}</h1>
 
                     <form action="/message" method="POST">
                         <label for="message" class="form-group">Message : </label>
@@ -42,8 +42,7 @@ const requestServer = (req, res) =>{
             return res.end();
         });
     
-    };
-    if(url === "/message" && method === "POST"){
+    }else if(url === "/message" && method === "POST"){
         const body = [];
         req.on('data',(chunk)=>{
             body.push(chunk);
@@ -60,10 +59,11 @@ const requestServer = (req, res) =>{
         res.statusCode = 302;
         res.setHeader('Location', '/')
         return res.end();
+    }else{
+        res.setHeader("Content-type","text/html");
+        res.write("<h1>If you want to access form then change url to '/'</h1>");
+        res.end();
     }
-    res.setHeader("Content-type","text/html");
-    res.write("<h1>If you want to access form then change url to '/'</h1>");
-    res.end();
     
 };
 
